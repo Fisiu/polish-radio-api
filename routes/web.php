@@ -13,11 +13,11 @@ use App\Http\Controllers\RadioController;
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
+$router->get('/', function () use ($router) {
+    return $router->app->version();
 });
 
-$app->group(['prefix' => 'api/v1'], function($app) {
-    $app->get('/', 'RadioController@home');
-    $app->get('radios', 'RadioController@index');
+$router->group(['prefix' => 'api/v1'], function($router) {
+    $router->get('/', 'RadioController@home');
+    $router->get('radios', 'RadioController@index');
 });
